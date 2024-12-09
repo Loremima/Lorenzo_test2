@@ -12,7 +12,7 @@ const sections = [
   { id: 'about', label: 'ABOUT' },
   { id: 'services', label: 'SERVICES' },
   { id: 'portfolio', label: 'PORTFOLIO' },
-  { id: 'blog', label: 'BLOG' },
+  { id: 'blog', label: 'NEWS' },
   { id: 'contact', label: 'CONTACT' },
   { id: 'footer', label: 'FOOTER' },
 ] as const;
