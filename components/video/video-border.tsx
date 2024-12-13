@@ -2,7 +2,6 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
 
 interface VideoBorderProps {
   position: "left" | "right";

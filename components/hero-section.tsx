@@ -58,6 +58,7 @@ export function HeroSection() {
 
     typedInstancesRef.current.name = nameTyped;
 
+    // Cleanup on unmount
     return () => {
       if (typedInstancesRef.current.name) {
         typedInstancesRef.current.name.destroy();
@@ -66,61 +67,62 @@ export function HeroSection() {
         typedInstancesRef.current.title.destroy();
       }
     };
-  }, []);
+  }, []); // Only run on mount
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
-      <div className="container mx-auto px-4">
-        {/* Updated padding here */}
-        <div className="relative z-10 pl-4 md:pl-48">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              <span ref={nameEl}></span>
-            </h1>
-            <div className="text-lg md:text-xl font-medium mb-6">
-              <span ref={titleEl}></span>
-            </div>
-            <motion.p
-              className="text-base text-muted-foreground max-w-md mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.5, duration: 0.8 }}
+    <section id="home" className="scroll-section">
+      <div className="scroll-content">
+        <div className="container mx-auto px-4">
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              Transforming businesses through cutting-edge AI technology
-            </motion.p>
+              <h1 className="text-5xl md:text-6xl font-bold mb-4">
+                <span ref={nameEl}></span>
+              </h1>
+              <div className="text-lg md:text-xl font-medium mb-6">
+                <span ref={titleEl}></span>
+              </div>
+              <motion.p
+                className="text-base text-muted-foreground max-w-md mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5, duration: 0.8 }}
+              >
+                Transforming businesses through cutting-edge AI technology
+              </motion.p>
 
-            <div className="flex items-center space-x-6">
-              {[
-                {
-                  icon: Linkedin,
-                  href: 'https://www.linkedin.com/in/lorenzo-mira-mateo/',
-                  label: 'LinkedIn',
-                },
-                {
-                  icon: Github,
-                  href: 'https://github.com/Loremima',
-                  label: 'GitHub',
-                },
-              ].map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 3 + 0.1 * index }}
-                >
-                  <social.icon className="h-4 w-4" />
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+              <div className="flex items-center space-x-6">
+                {[
+                  {
+                    icon: Linkedin,
+                    href: 'https://www.linkedin.com/in/lorenzo-mira-mateo/',
+                    label: 'LinkedIn',
+                  },
+                  {
+                    icon: Github,
+                    href: 'https://github.com/Loremima',
+                    label: 'GitHub',
+                  },
+                ].map((social, index) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 3 + 0.1 * index }}
+                  >
+                    <social.icon className="h-4 w-4" />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
