@@ -62,13 +62,12 @@ const contactInfo = [
 ];
 
 export function AboutSection() {
-  const [activeSkill, setActiveSkill] = useState(null);
+  const [activeSkill, setActiveSkill] = useState<number|null>(null);
 
   return (
     <section id="about" className="min-h-screen flex items-center">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-[1200px] mx-auto">
-          {/* Centered Title */}
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +80,7 @@ export function AboutSection() {
           </motion.div>
 
           <div className="grid lg:grid-cols-12 gap-12 items-start">
-            {/* Left Column - Image, Contact, and CV Button */}
+            {/* Left Column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -89,8 +88,7 @@ export function AboutSection() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-5 flex flex-col items-center"
             >
-              <div className="w-[240px] space-y-6">
-                {/* Image Container */}
+              <div className="w-full max-w-[240px] mx-auto space-y-6">
                 <div className="relative w-full h-[240px] rounded-2xl overflow-hidden">
                   <motion.div
                     className="absolute -inset-4 rounded-2xl opacity-50"
@@ -125,7 +123,6 @@ export function AboutSection() {
                   </div>
                 </div>
 
-                {/* Contact Information */}
                 <div className="space-y-2">
                   {contactInfo.map((info, index) => (
                     <motion.div
@@ -148,7 +145,6 @@ export function AboutSection() {
                   ))}
                 </div>
 
-                {/* Download CV Button */}
                 <motion.a
                   href="/Lorenzo_Mira_Mateo_Business_Analyst.pdf"
                   download="Lorenzo_Mira_Mateo_CV.pdf"
@@ -163,7 +159,7 @@ export function AboutSection() {
               </div>
             </motion.div>
 
-            {/* Right Column - Content */}
+            {/* Right Column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -173,7 +169,7 @@ export function AboutSection() {
             >
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                Armed with a Master's in Data Science and 8+ years of expertise, I turn complex data challenges into business advantages. I build cutting-edge AI solutions and automation systems that help companies reduce costs, increase efficiency, and unlock hidden opportunities in their data.
+                  Armed with a Master's in Data Science and 8+ years of expertise, I turn complex data challenges into business advantages. I build cutting-edge AI solutions and automation systems that help companies reduce costs, increase efficiency, and unlock hidden opportunities in their data.
                 </p>
               </div>
 

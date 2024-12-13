@@ -58,7 +58,6 @@ export function HeroSection() {
 
     typedInstancesRef.current.name = nameTyped;
 
-    // Cleanup on unmount
     return () => {
       if (typedInstancesRef.current.name) {
         typedInstancesRef.current.name.destroy();
@@ -67,12 +66,13 @@ export function HeroSection() {
         typedInstancesRef.current.title.destroy();
       }
     };
-  }, []); // Only run on mount
+  }, []);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center">
       <div className="container mx-auto px-4">
-        <div className="relative z-10 pl-48">
+        {/* Updated padding here */}
+        <div className="relative z-10 pl-4 md:pl-48">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

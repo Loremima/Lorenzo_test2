@@ -38,11 +38,12 @@ export function RightNavigation() {
   };
 
   return (
+    // Hide on very small screens, adjust spacing
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: isIdle ? 0 : 1 }}
       transition={{ duration: animations.duration.fast }}
-      className="fixed right-7 top-1/2 -translate-y-1/2 z-30"
+      className="hidden sm:flex fixed right-2 md:right-7 top-1/2 -translate-y-1/2 z-30"
     >
       <div className="flex flex-col space-y-4">
         {sections.map((section) => (

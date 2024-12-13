@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollContext } from '../scroll/scroll-context';
 import { useIdleTimer } from './use-idle-timer';
 import { useTheme } from 'next-themes';
-import { colors, animations } from '@/lib/design-system';
+import { animations } from '@/lib/design-system';
 
 const sectionNames = {
   home: 'HOME',
@@ -30,11 +30,12 @@ export function LeftNavigation() {
   if (!mounted) return null;
 
   return (
+    // Adjust left spacing responsively
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: isIdle ? 0 : 1 }}
       transition={{ duration: animations.duration.fast }}
-      className="fixed left-7 top-1/2 -translate-y-1/2 z-30"
+      className="fixed left-2 sm:left-4 md:left-7 top-1/2 -translate-y-1/2 z-30 hidden sm:block"
     >
       <div className="flex flex-col items-center gap-12">
         <div className="w-0.5 h-12 bg-red-500" />

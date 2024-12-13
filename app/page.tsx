@@ -29,7 +29,10 @@ export default function Home() {
         <section
           key={id}
           id={id}
-          className={`scroll-section relative z-10 ${id === 'home' || id === 'footer' ? '' : 'px-36'}`}
+          // Removed forced height and overflow hidden (handled in CSS)
+          className={`scroll-section relative z-10 ${
+            id === 'home' || id === 'footer' ? 'px-4' : 'px-4 sm:px-8 md:px-16 lg:px-36'
+          }`}
         >
           <Component />
         </section>
